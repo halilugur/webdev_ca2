@@ -1,6 +1,8 @@
 var outputElm = document.getElementById('output');
 var errorElm = document.getElementById('error');
 var dbFileElm = document.getElementById('dbfile');
+var limit = document.getElementById('limit');
+var limitValue = document.getElementById('limit-value');
 
 // Start the worker in which sql.js will run
 var worker = new Worker("./js/worker.sql-wasm.js");
@@ -57,16 +59,21 @@ var tableCreate = function () {
     }
 }();
 
+function updateLimit(element) {
+    limitValue.textContent = element.value;
+}
+
 function execConfigContents(element) {
-	if (dbFileElm.files.length) {
-		let sql = element.parentElement.previousElementSibling.innerText
-		execute(sql + ';');
-		errorElm.textContent = "";
-		errorElm.removeAttribute("class")
-	} else {
-		errorElm.textContent = "Please select DB!";
-		errorElm.setAttribute("class", "alert alert-danger")
-	}
+    if (dbFileElm.files.length) {
+        console.warn(limit.value)
+        let sql = element.parentElement.previousElementSibling.innerText + " LIMIT " + limit.value;
+        execute(sql + ';');
+        errorElm.textContent = "";
+        errorElm.removeAttribute("class")
+    } else {
+        errorElm.textContent = "Please select DB!";
+        errorElm.setAttribute("class", "alert alert-danger")
+    }
 }
 
 // Performance measurement functions
