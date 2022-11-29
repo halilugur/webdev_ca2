@@ -20,10 +20,12 @@
                         <input type="file" class="form-control" id="dbfile"/>
                         <br>
                         <h6 class="alert alert-warning"><strong>Info:</strong> We automatic applied limit as default 100
-                            on background for each query.</h6>
-                        <div class="form-group">
-                            <strong id="limit-value">100</strong>
-                            <input type="range" min="1" max="1000" value="100" class="form-control-range" id="limit"
+                            on background for each query. If you want you can change the limit.</h6>
+                        <div class="row">
+                            <label for="limit" class="form-label">
+                                Limit Range : <strong>0</strong> - <strong id="limit-value">100</strong>
+                            </label>
+                            <input type="range" min="1" max="1000" value="100" class="form-range" id="limit"
                                    onchange="updateLimit(this)">
                         </div>
                     </div>
