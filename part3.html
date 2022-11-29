@@ -5,7 +5,7 @@
         <title>Database Part 1 Tasks</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
         <!-- Custom styles for this template -->
         <link href="./css/styles.css" rel="stylesheet">
     </head>
@@ -13,11 +13,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Eighth navbar example">
             <div class="container">
                 <a class="navbar-brand" href="part3.html">Part 3</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse flex-grow-0">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -44,7 +39,7 @@
                     </div>
                     <div class="card-header">
                         <h5>Select Database</h5>
-                        <input type="file" class="form-control" id="dbfile"/>
+                        <input type="file" class="form-control" id="dbfile">
                         <br>
                         <h6 class="alert alert-warning"><strong>Info:</strong> We automatic applied limit as default 100
                             on background for each query. If you want you can change the limit.</h6>
@@ -75,7 +70,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List the number of male managers and female managers who work for each department. Make sure to display the gender, the number of employees (renamed as num_empGender) and dept_no, ordered by department number in an ascendant order.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -90,7 +85,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List the average salary of male and female employees whose title is 'Technique Leader'. In your result table should appear, gender, average salary named as avg_salary and title.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -100,12 +95,12 @@
                                     <tr>
                                         <td class="align-middle"><strong> 3</strong></td>
                                         <td class="align-middle">
-                                            <pre class="prettyprint"><code class="language-sql">SELECT COUNT(*) AS current_employees FROM employees AS e JOIN salaries AS s ON e.emp_id=s.emp_id WHERE CURRENT_DATE < s.to_date and s.salary > 90000 and s.salary < 90040</code></pre>
+                                            <pre class="prettyprint"><code class="language-sql">SELECT COUNT(*) AS current_employees FROM employees AS e JOIN salaries AS s ON e.emp_id=s.emp_id WHERE CURRENT_DATE &lt; s.to_date and s.salary &gt; 90000 and s.salary &lt; 90040</code></pre>
                                         </td>
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="The number of employees that have a current salary (i.e., to_date equals to 9999-01-01) between 90000 and 90040.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -115,12 +110,12 @@
                                     <tr>
                                         <td class="align-middle"><strong> 4</strong></td>
                                         <td class="align-middle">
-                                            <pre class="prettyprint"><code class="language-sql">SELECT  e.last_name, e.first_name, s.salary FROM employees AS e INNER JOIN salaries AS s ON e.emp_id=s.emp_id WHERE CURRENT_DATE < s.to_date and s.salary > 90000 GROUP by e.last_name, e.first_name ORDER by e.last_name DESC, e.first_name DESC</code></pre>
+                                            <pre class="prettyprint"><code class="language-sql">SELECT  e.last_name, e.first_name, s.salary FROM employees AS e INNER JOIN salaries AS s ON e.emp_id=s.emp_id WHERE CURRENT_DATE &lt; s.to_date and s.salary > 90000 GROUP by e.last_name, e.first_name ORDER by e.last_name DESC, e.first_name DESC</code></pre>
                                         </td>
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List all unique employees’ last and first names (using GROUP BY method) that have a current salary (i.e., to_date equals to 9999-01-01) greater than 90000, outputting both names in descending order (sort by the last name first and then the first name) and also displaying their current salaries (using the INNER JOIN method).">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -135,7 +130,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="First name, last name, all salary dates and related amounts for the employee with employee number 10012.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -157,6 +152,6 @@
         <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=sql"></script>
 
         <script src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/gui.js"></script>
+        <script src="js/gui.js"></script>
     </body>
 </html>

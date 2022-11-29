@@ -5,7 +5,7 @@
         <title>Database Part 1 Tasks</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
         <!-- Custom styles for this template -->
         <link href="./css/styles.css" rel="stylesheet">
     </head>
@@ -13,11 +13,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Eighth navbar example">
             <div class="container">
                 <a class="navbar-brand" href="part2.html">Part 2</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse flex-grow-0">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -44,7 +39,7 @@
                     </div>
                     <div class="card-header">
                         <h5>Select Database</h5>
-                        <input type="file" class="form-control" id="dbfile"/>
+                        <input type="file" class="form-control" id="dbfile">
                         <br>
                         <h6 class="alert alert-warning"><strong>Info:</strong> We automatic applied limit as default 100
                             on background for each query. If you want you can change the limit.</h6>
@@ -75,7 +70,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="The number of all employees that started on 1991-05-01.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -90,7 +85,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List all emp_no who have had strictly more than 2 titles and display the total number of the titles they have had.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -105,7 +100,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List female employees (past/current) together with all other relation attributes.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -115,12 +110,12 @@
                                     <tr>
                                         <td class="align-middle"><strong> 4</strong></td>
                                         <td class="align-middle">
-                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM employees WHERE last_name="Simmel" AND hire_date < "1986-01-01"</code></pre>
+                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM employees WHERE last_name="Simmel" AND hire_date &lt; "1986-01-01"</code></pre>
                                         </td>
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List past/current employees hired prior to 1986-01-01 with the surname Simmel">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -135,7 +130,7 @@
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="How many past/current employees’ last name begins with the capital letter B? Use a column alias total with B to output your results.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -162,7 +157,7 @@ CREATE TABLE IF NOT EXISTS emp_training(
 • first_name: this data type is varchar(30) and should not be NULL<br><br>
 • last_name: this data type is varchar(30) and should not be NULL<br><br>
 • t_module: this data type is varchar(20)">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -179,7 +174,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="Insert 2 new rows into the emp_training table.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -194,7 +189,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="List of Employee training.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -209,7 +204,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="The organisation no longer wishes to record the employees training within the database. Therefore, delete the newly created emp_training table.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -224,7 +219,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="Alter the employees table to include an email_address field of type varchar(20)">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -239,7 +234,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="Update the email address of Georgi Facello to gfacello@gmail.com, where emp_no equals to 10001">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -254,7 +249,7 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
                                         <td class="align-middle"
                                             data-bs-toggle="tooltip" data-bs-placement="right"
                                             data-bs-title="Get employee that number is 10001.">
-                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                            <a class="btn btn-success btn-action mr-1 exec"
                                                onclick="execConfigContents(this, false)"
                                                data-toggle="tooltip" title="" data-original-title="Execute">
                                                 <i class="bi bi-chevron-double-right fs-4"></i> Execute
@@ -276,6 +271,6 @@ INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs
         <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=sql"></script>
 
         <script src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/gui.js"></script>
+        <script src="js/gui.js"></script>
     </body>
 </html>
