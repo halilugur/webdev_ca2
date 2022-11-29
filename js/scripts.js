@@ -5,3 +5,6 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
