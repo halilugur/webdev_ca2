@@ -13,8 +13,8 @@ worker.postMessage({action: 'open'});
 
 function error(e) {
     console.log(e);
-    errorElm.style.height = '2em';
     errorElm.textContent = e.message;
+    errorElm.setAttribute("class", "alert alert-danger")
 }
 
 // Run a command in the database
@@ -63,13 +63,19 @@ function updateLimit(element) {
     limitValue.textContent = element.value;
 }
 
-function execConfigContents(element) {
+function execConfigContents(element, useLimit = true) {
     if (dbFileElm.files.length) {
         console.warn(limit.value)
-        let sql = element.parentElement.previousElementSibling.innerText + " LIMIT " + limit.value;
+        let limitInput = " LIMIT " + limit.value;
+        let sql = element.parentElement.previousElementSibling.innerText + (useLimit ? limitInput : "");
+        console.warn(sql)
         execute(sql + ';');
         errorElm.textContent = "";
         errorElm.removeAttribute("class")
+        if (!useLimit) {
+            errorElm.textContent = "Query Worked";
+            errorElm.setAttribute("class", "alert alert-info")
+        }
     } else {
         errorElm.textContent = "Please select DB!";
         errorElm.setAttribute("class", "alert alert-danger")

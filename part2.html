@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Database Part 1 Tasks</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"/>
+        <!-- Custom styles for this template -->
+        <link href="./css/styles.css" rel="stylesheet">
+    </head>
+    <body class="text-bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Eighth navbar example">
+            <div class="container">
+                <a class="navbar-brand" href="#">Part 2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="part1.html">Part 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="part2.html">Part 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="part3.html">Part 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="col-md-12 col-12 col-sm-12 m-5 p-5">
+                <div class="card text-dark">
+                    <div class="card-header">
+                        <h4>Database Part 2 Tasks</h4>
+                    </div>
+                    <div class="card-header">
+                        <h5>Select Database</h5>
+                        <input type="file" class="form-control" id="dbfile"/>
+                        <br>
+                        <h6 class="alert alert-warning"><strong>Info:</strong> We automatic applied limit as default 100
+                            on background for each query. If you want you can change the limit.</h6>
+                        <div class="row">
+                            <label for="limit" class="form-label">
+                                Limit Range : <strong>0</strong> - <strong id="limit-value">100</strong>
+                            </label>
+                            <input type="range" min="1" max="1000" value="100" class="form-range" id="limit"
+                                   onchange="updateLimit(this)">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>Task</td>
+                                        <td>SQL</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle"><strong> 1</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT COUNT(*) AS "Employees number on started 1991-05-01" FROM employees WHERE hire_date="1991-05-01"</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="The number of all employees that started on 1991-05-01.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 2</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT e.emp_id, COUNT(e.emp_id) AS "total number of the titles" FROM employees AS e JOIN titles AS t ON e.emp_id=t.emp_id GROUP BY e.emp_id HAVING COUNT(e.emp_id) > 2</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="List all emp_no who have had strictly more than 2 titles and display the total number of the titles they have had.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 3</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM employees AS e JOIN titles AS t ON e.emp_id=t.emp_id JOIN dept_emp AS de on de.emp_id=e.emp_id JOIN dept_manager AS dm ON dm.emp_id=e.emp_id JOIN departments AS d ON d.dept_id=de.dept_id OR d.dept_id=dm.dept_id JOIN salaries AS s ON s.emp_id=e.emp_id WHERE e.gender="F"</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="List female employees (past/current) together with all other relation attributes.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 4</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM employees WHERE last_name="Simmel" AND hire_date < "1986-01-01"</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="List past/current employees hired prior to 1986-01-01 with the surname Simmel">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 5</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT COUNT(*) AS "total with B" FROM employees WHERE last_name LIKE "B%"</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="How many past/current employees’ last name begins with the capital letter B? Use a column alias total with B to output your results.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 6</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">DROP TABLE IF EXISTS emp_training;
+CREATE TABLE IF NOT EXISTS emp_training(
+  trainer_no INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  t_module TEXT
+)
+</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-html="true"
+                                            data-bs-title="Create a new table called emp_training with 3 columns:<br><br>
+• trainer_no: this should be the primary key and is of type integer and is an auto-increment.<br><br>
+• first_name: this data type is varchar(30) and should not be NULL<br><br>
+• last_name: this data type is varchar(30) and should not be NULL<br><br>
+• t_module: this data type is varchar(20)">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 7</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Joe', 'Bloggs', 'Google Docs');
+INSERT INTO emp_training (first_name,last_name,t_module) VALUES ('Fred', 'Bloggs', 'Google Sheets')
+</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="Insert 2 new rows into the emp_training table.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 7.1</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM emp_training</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="List of Employee training.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 8</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">DROP TABLE IF EXISTS emp_training</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="The organisation no longer wishes to record the employees training within the database. Therefore, delete the newly created emp_training table.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 9</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">ALTER TABLE employees ADD COLUMN email_address varchar(20)</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="Alter the employees table to include an email_address field of type varchar(20)">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 10</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">UPDATE employees SET email_address="gfacello@gmail.com" WHERE emp_id=10001</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="Update the email address of Georgi Facello to gfacello@gmail.com, where emp_no equals to 10001">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle"><strong> 10.1</strong></td>
+                                        <td class="align-middle">
+                                            <pre class="prettyprint"><code class="language-sql">SELECT * FROM employees WHERE emp_id=10001</code></pre>
+                                        </td>
+                                        <td class="align-middle"
+                                            data-bs-toggle="tooltip" data-bs-placement="right"
+                                            data-bs-title="Get employee that number is 10001.">
+                                            <a class="btn btn-primary btn-action mr-1 exec"
+                                               onclick="execConfigContents(this, false)"
+                                               data-toggle="tooltip" title="" data-original-title="Execute">
+                                                <i class="bi bi-chevron-double-right fs-4"></i> Execute
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="error"></div>
+                            <pre id="output"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/sql/sql.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=sql"></script>
+
+        <script src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/gui.js"></script>
+    </body>
+</html>
